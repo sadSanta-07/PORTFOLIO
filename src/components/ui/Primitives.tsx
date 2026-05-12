@@ -23,8 +23,7 @@ export function BrutalButton({
         inline-block
         border-2
         border-[var(--charcoal)]
-        px-5
-        py-3
+
         font-mono
         text-sm
         transition-all

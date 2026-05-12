@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { FlipWords } from "./ui/flip-words";
 import MEOW from "../assets/MEOW.jpg";
 
-const words = ["COOL", "WORKING", "INTELLIGENT"];
+const words = ["cool", "working", "intelligent"];
 
 export const Hero = () => {
     return (
@@ -19,10 +19,10 @@ export const Hero = () => {
                         >
 
                             <h1 className="font-display text-4xl md:text-8xl lg:text-6xl font-bold tracking-tight leading-[0.9] mb-8">
-                                I TURN IDEAS INTO <br />
+                                I turn ideas into <br />
                                 <span >
                                     <FlipWords words={words}
-                                        className="text-[var(--accent)] italic block" /> <br /></span> SOFTWARES.
+                                        className="text-[var(--accent)] italic block" /> <br /></span> software.
                             </h1>
 
                             <p className="font-mono text-sm md:text-base text-[var(--muted)] leading-relaxed mb-10">                                
@@ -30,11 +30,12 @@ export const Hero = () => {
                             </p>
                             <div className="flex flex-wrap gap-4">
 
-                                <BrutalButton filled>
+                                <BrutalButton className='px-5 py-3'
+                                filled>
                                     VIEW MY WORK
                                 </BrutalButton>
 
-                                <BrutalButton>
+                                <BrutalButton className='px-5 py-3'>
                                     DOWNLOAD RESUME
                                 </BrutalButton>
 
@@ -42,7 +43,7 @@ export const Hero = () => {
                         </motion.div>
                     </div>
 
-                    <div className="lg:col-span-4 hidden lg:block">
+                    <div className="lg:col-span-4 hidden lg:block mt-9">
                         <BrutalButton>
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.95 }}
