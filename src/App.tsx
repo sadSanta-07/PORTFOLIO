@@ -1,7 +1,7 @@
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
-import { Stats } from './components/stats'
+import { Stats } from './components/Stats'
 import { Projects } from './components/Projects'
 
 export default function App() {
