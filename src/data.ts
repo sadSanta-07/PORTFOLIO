@@ -36,3 +36,34 @@ export const projectData = [
     github: "#",
   },
 ];
+
+
+
+export const skills = {
+  Languages: ["TypeScript", "Python", "Rust", "Go", "C++", "SQL"],
+
+  "AI/ML": [
+    "PyTorch",
+    "HuggingFace",
+    "LangChain",
+    "OpenAI",
+    "Vector DBs",
+  ],
+
+  Backend: [
+    "Node.js",
+    "Express",
+    "FastAPI",
+    "PostgreSQL",
+    "Redis",
+    "RabbitMQ",
+  ],
+
+  Infrastructure: [
+    "Docker",
+    "Kubernetes",
+    "AWS",
+    "Terraform",
+    "CI/CD",
+  ],
+};
