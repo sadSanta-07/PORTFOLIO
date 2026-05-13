@@ -1,32 +1,114 @@
+import { useState } from "react";
+
+const EMAIL = "sahilsingh107433@gmail.com";
+
+const links = [
+    {
+        label: "github",
+        href: "https://github.com/sadSanta-07",
+    },
+    {
+        label: "linkedin",
+        href: "https://www.linkedin.com/in/sahilsingh107433/",
+    },
+    {
+        label: "x",
+        href: "https://x.com/YOUR_USERNAME",
+    },
+];
 
 const Footer = () => {
+    const [copied, setCopied] = useState(false);
+
+    const handleEmail = async () => {
+        await navigator.clipboard.writeText(EMAIL);
+
+        setCopied(true);
+
+        setTimeout(() => {
+            setCopied(false);
+        }, 2000);
+    };
+
     return (
-        <footer className="bg-[var(--charcoal)] text-[var(--bg)] px-6 md:px-12 py-24 md:py-48">
+        <footer
+            id="contact"
+            className="
+        w-full
+        bg-[var(--charcoal)]
+        text-[var(--bg)]
+        py-16 md:py-20
+        px-6 sm:px-8 md:px-12 lg:px-16
+      "
+        >
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-                    <div>
-                        <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-none mb-12">
-                            LET'S BUILD <br /> SOMETHING <br /> <span className="text-[var(--accent)]">MEANINGFUL.</span>
-                        </h2>
-                        <div className="flex gap-4">
-                            <a href="sahilsingh107433@gmail.com" className="brutalist-border border-[var(--bg)] p-4 hover:bg-[var(--bg)] hover:text-[var(--charcoal)] transition-all">
-                                email
+                {/* TOP */}
+                <div className="flex justify-between items-baseline flex-wrap gap-4">
+                    <h2>
+                        <div className=" text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter leading-none uppercase">
+                            LET&apos;S BUILD SOMETHING <br />
+                            <span className="text-[var(--accent)]">
+                                MEANINGFUL.
+                            </span>
+                        </div>
+                    </h2>
+                    <span
+                        className="
+              font-mono
+              text-sm
+              text-[var(--muted)]
+            "
+                    >
+                        {new Date().getFullYear()}
+                    </span>
+                </div>
+
+                {/* DIVIDER */}
+                <div className="w-full border-t border-[var(--muted)] opacity-30 my-8" />
+
+                <div className="flex justify-between items-start flex-wrap gap-8">
+
+                    <div className="flex flex-wrap gap-3">
+
+                        <button
+                            onClick={handleEmail}
+                            className=" font-mono text-sm lowercase border border-[var(--muted)] px-4 py-2 transition-all duration-150 hover:border-[var(--bg)]
+              "
+                        >
+                            {copied ? "copied!" : "email"}
+                        </button>
+
+                        {links.map((link) => (
+                            <a
+                                key={link.label}
+                                href={link.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="font-mono text-sm lowercase border border-[var(--muted)] px-4 py-2 transition-all duration-150 hover:border-[var(--bg)]"
+                            >
+                                {link.label}
                             </a>
-                            <a href="#" className="brutalist-border border-[var(--bg)] p-4 hover:bg-[var(--bg)] hover:text-[var(--charcoal)] transition-all">
-                                github
-                            </a>
-                            <a href="#" className="brutalist-border border-[var(--bg)] p-4 hover:bg-[var(--bg)] hover:text-[var(--charcoal)] transition-all">
-                                inkedin
-                            </a>
-                            <a href="#" className="brutalist-border border-[var(--bg)] p-4 hover:bg-[var(--bg)] hover:text-[var(--charcoal)] transition-all">
-                                X
-                            </a>
+                        ))}
+                    </div>
+
+                    {/* RIGHT SIDE */}
+                    <div className="text-left md:text-right">
+
+                        <div
+                            className="
+                font-mono
+                text-xs
+                text-[var(--muted)]
+                mt-1
+              "
+                        >
+                            Sahil Singh · KIIT · 2028
                         </div>
                     </div>
                 </div>
             </div>
-        </footer>
-    )
-}
+        </footer >
+    );
+};
 
-export default Footer
+export default Footer;
