@@ -79,3 +79,41 @@ export function Badge({ children, className = "" }: BadgeProps) {
     </span>
   );
 }
+
+
+interface BrutalCardProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export function BrutalCard({
+  children,
+  className = "",
+}: BrutalCardProps) {
+  return (
+    <div
+      className={`
+        relative
+        transition-all
+        duration-200
+        ease-out
+        will-change-transform
+        ${className}
+      `}
+      onMouseEnter={(e) => {
+        const el = e.currentTarget;
+
+        el.style.transform = "translate(-4px, -4px)";
+        el.style.boxShadow = "10px 10px 0px var(--accent)";
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget;
+
+        el.style.transform = "";
+        el.style.boxShadow = "none";
+      }}
+    >
+      {children}
+    </div>
+  );
+}
