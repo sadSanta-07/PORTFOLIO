@@ -5,7 +5,7 @@ const EMAIL = "sahilsingh107433@gmail.com";
 const links = [
     {
         label: "github",
-        href: "https://github.com/sadSanta-07",
+        href: "https://github.com/sadSanta-07",     
     },
     {
         label: "linkedin",
@@ -13,7 +13,7 @@ const links = [
     },
     {
         label: "x",
-        href: "https://x.com/YOUR_USERNAME",
+        href: "https://x.com/sahilYapsss",
     },
 ];
 
