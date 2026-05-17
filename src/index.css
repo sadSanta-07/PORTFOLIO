@@ -17,6 +17,11 @@
 }
 
 html,
+
+
+html {
+  scroll-behavior: smooth;
+}
 body,
 #root {
   width: 100%;

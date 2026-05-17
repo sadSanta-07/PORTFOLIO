@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { projectData } from "../data";
 import { RoughBorder } from "./ui/RoughShape";
+import { BrutalCard } from "./ui/Primitives";
 
 export const Projects = () => {
     return (
@@ -53,17 +54,20 @@ export const Projects = () => {
                             className="
                 group
                 relative bg-[var(--bg)] p-6
-                transition-all
-                duration-150
-                hover:-translate-x-[2px]
-                hover:-translate-y-[2px]
-                hover:shadow-[8px_8px_0px_var(--accent)]
               "
                         >
-                            <RoughBorder />
-                            {project.tag && (
-                                <div
-                                    className="
+                            <BrutalCard
+                                className="
+      group
+      relative
+      bg-[var(--bg)]
+      p-6
+    "
+                            >
+                                <RoughBorder />
+                                {project.tag && (
+                                    <div
+                                        className="
       absolute
       right-6
       top-6
@@ -77,24 +81,24 @@ export const Projects = () => {
       duration-200
       hover:rotate-0
     "
-                                >
-                                    <p
-                                        className="
+                                    >
+                                        <p
+                                            className="
         font-mono
         text-xs
         uppercase
         tracking-[0.15em]
         text-[var(--text)]
       "
-                                    >
-                                        {project.tag}
-                                    </p>
-                                </div>
-                            )}
+                                        >
+                                            {project.tag}
+                                        </p>
+                                    </div>
+                                )}
 
-                            {/* TITLE */}
-                            <h3
-                                className="
+                                {/* TITLE */}
+                                <h3
+                                    className="
 mb-6 pr-44 pt-4
     font-display
     text-4xl
@@ -105,17 +109,17 @@ mb-6 pr-44 pt-4
     duration-150
     group-hover:text-[var(--accent)]
   "
-                            >
-                                {project.title}
-                            </h3>
+                                >
+                                    {project.title}
+                                </h3>
 
-                            {/* STACK TAGS */}
-                            <div className="mb-6 flex flex-wrap gap-2">
+                                {/* STACK TAGS */}
+                                <div className="mb-6 flex flex-wrap gap-2">
 
-                                {project.stacks.map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="
+                                    {project.stacks.map((tag) => (
+                                        <span
+                                            key={tag}
+                                            className="
         border
         border-[var(--charcoal)]
         px-3
@@ -126,16 +130,16 @@ mb-6 pr-44 pt-4
         tracking-[0.08em]
         text-[var(--text)]
       "
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
 
-                            </div>
+                                </div>
 
-                            {/* DESCRIPTION */}
-                            <p
-                                className="
+                                {/* DESCRIPTION */}
+                                <p
+                                    className="
     mb-8
     max-w-xl
     font-sans
@@ -143,18 +147,18 @@ mb-6 pr-44 pt-4
     leading-[1.8]
     text-[var(--text)]
   "
-                            >
-                                {project.description}
-                            </p>
+                                >
+                                    {project.description}
+                                </p>
 
-                            {/* FOOTER */}
-                            <div className="flex items-center gap-1">
+                                {/* FOOTER */}
+                                <div className="flex items-center gap-1">
 
-                                <a
-                                    href={project.github}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="
                                                 font-mono
                                                 text-xs
                                                 uppercase
@@ -164,11 +168,12 @@ mb-6 pr-44 pt-4
                                                 duration-150
                                                 hover:translate-x-[2px]
                                                 "
-                                >
-                                    github ↗
-                                </a>
+                                    >
+                                        github ↗
+                                    </a>
 
-                            </div>
+                                </div>
+                                </BrutalCard>
 
                         </motion.div>
                     ))}

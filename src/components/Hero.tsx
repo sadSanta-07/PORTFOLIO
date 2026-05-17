@@ -25,17 +25,22 @@ export const Hero = () => {
                                         className="text-[var(--accent)] italic block" /> <br /></span> software.
                             </h1>
 
-                            <p className="font-mono text-sm md:text-base text-[var(--muted)] leading-relaxed mb-10">                                
+                            <p className="font-mono text-sm md:text-base text-[var(--muted)] leading-relaxed mb-10">
                                 3rd Year CSE(AI-ML) at KIIT · Full-Stack Developer & AI Builder
                             </p>
                             <div className="flex flex-wrap gap-4">
 
-                                <BrutalButton className='px-5 py-3'
-                                filled>
-                                    VIEW MY WORK
+                                <BrutalButton href="#projects"
+                                    className='px-5 py-3'
+                                    filled>
+                                    VIEW MY WORK ↓
                                 </BrutalButton>
 
-                                <BrutalButton className='px-5 py-3'>
+                                <BrutalButton 
+                                    href="/resume.pdf"
+                                    download
+                                    className='px-5 py-3'>
+
                                     DOWNLOAD RESUME
                                 </BrutalButton>
 
