@@ -1,3 +1,14 @@
+type AchievementItem = {
+  title: string;
+  detail: string;
+  badge?: string;
+};
+
+type AchievementSection = {
+  category: string;
+  items: AchievementItem[];
+};
+
 export const projectData = [
   {
     title: "NOXLY AI",
@@ -78,7 +89,7 @@ export const skills = {
   ],
 };
 
-export const achievementSections = [
+export const achievementSections: AchievementSection[] = [
   {
     category: "Hackathons",
 
