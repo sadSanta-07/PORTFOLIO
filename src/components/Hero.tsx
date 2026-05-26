@@ -1,7 +1,7 @@
 import { Badge, BrutalButton } from './ui/Primitives';
 import { motion } from 'motion/react';
 import { FlipWords } from "./ui/flip-words";
-import MEOW from "../assets/MEOW.jpg";
+import me from "../assets/pfp.jpg";
 
 const words = ["cool", "working", "intelligent"];
 
@@ -108,7 +108,7 @@ export const Hero = () => {
                             >
 
                                 <img
-                                    src={MEOW}
+                                    src={me}
                                     alt="me"
                                     className=" w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration "
                                 />
