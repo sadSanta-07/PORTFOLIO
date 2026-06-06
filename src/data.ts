@@ -11,13 +11,13 @@ type AchievementSection = {
 
 export const projectData = [
   {
-    title: "NOXLY AI",
-    tag: "live",
+    title: "SANTACLAW ",
+    // tag: "live",
     description:
-      "AI-powered note-taking workspace with a context-aware Gemini Pro chat assistant, magic AI toolbar for rewrite/expand/simplify, and productivity analytics.",
-    stacks: ["NEXT.JS 15", "GEMINI PRO", "POSTGRESQL", "PRISMA", "ZUSTAND"],
-    github: "https://github.com/sadSanta-07/NoxlyAI",
-    live: "https://noxly-coral.vercel.app",
+      "A Bun-powered autonomous coding agent that leverages codebase context, agentic workflows, and LLM-driven reasoning to analyze repositories, plan features, and generate code changes while maintaining a staged review and approval workflow.",
+    stacks: ["Bun", "Clack", "Chalk", "AI SDK", "TypeScript" , "Telegraf"],
+    github: "https://github.com/sadSanta-07/SANTACLAW",
+    // live: "https://noxly-coral.vercel.app",
   },
 
   {
