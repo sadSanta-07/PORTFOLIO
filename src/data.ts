@@ -31,7 +31,7 @@ export const projectData = [
 
   {
     title: "ORBIT",
-    tag: "",
+    tag: "v2 coming soon",
     description:
       "Real-time collaborative platform with live discussion rooms, WebSocket messaging, modular REST API, and Cloudinary media pipelines.",
     stacks: ["NODE.JS", "SOCKET.IO", "MONGODB", "REACT", "SUPABASE"],
@@ -39,12 +39,12 @@ export const projectData = [
   },
 
   {
-    title: "MNIST CLASSIFIER",
+    title: "Decoder-Only Transformer",
     tag: "",
     description:
-      "Handwritten digit classifier built from scratch with PyTorch while studying neural networks, backpropagation, and CNN fundamentals.",
-    stacks: ["PYTORCH", "PYTHON", "CNN"],
-    github: "https://github.com/sadSanta-07/mnist-digit-classifier",
+      "A decoder-only Transformer from scratch using PyTorch, implementing self-attention, transformer blocks, and autoregressive text generation without high-level NLP libraries.",
+    stacks: ["PYTORCH", "PYTHON"],
+    github: "https://github.com/sadSanta-07/decoder-transformer-from-scratch",
   },
 ];
 
