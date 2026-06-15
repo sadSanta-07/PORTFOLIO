@@ -14,7 +14,7 @@ export const projectData = [
     title: "SANTACLAW ",
     // tag: "live",
     description:
-      "A Bun-powered autonomous coding agent that leverages codebase context, agentic workflows, and LLM-driven reasoning to analyze repositories, plan features, and generate code changes while maintaining a staged review and approval workflow.",
+      "A Bun-based autonomous coding agent leveraging codebase-aware context retrieval, agentic planning, and LLM-driven code generation with human-in-the-loop review.",
     stacks: ["Bun", "Clack", "Chalk", "AI SDK", "TypeScript" , "Telegraf"],
     github: "https://github.com/sadSanta-07/SANTACLAW",
     // live: "https://noxly-coral.vercel.app",
