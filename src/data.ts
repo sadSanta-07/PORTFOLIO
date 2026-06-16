@@ -15,9 +15,17 @@ export const projectData = [
     // tag: "live",
     description:
       "A Bun-based autonomous coding agent leveraging codebase-aware context retrieval, agentic planning, and LLM-driven code generation with human-in-the-loop review.",
-    stacks: ["Bun", "Clack", "Chalk", "AI SDK", "TypeScript" , "Telegraf"],
+    stacks: ["Bun", "Clack", "Chalk", "AI SDK", "TypeScript", "Telegraf"],
     github: "https://github.com/sadSanta-07/SANTACLAW",
     // live: "https://noxly-coral.vercel.app",
+  },
+  {
+    title: "Decoder-Only Transformer",
+    tag: "",
+    description:
+      "A decoder-only Transformer from scratch using PyTorch, implementing self-attention, transformer blocks, and autoregressive text generation without high-level NLP libraries.",
+    stacks: ["PYTORCH", "PYTHON"],
+    github: "https://github.com/sadSanta-07/decoder-transformer-from-scratch",
   },
 
   {
@@ -36,15 +44,28 @@ export const projectData = [
       "Real-time collaborative platform with live discussion rooms, WebSocket messaging, modular REST API, and Cloudinary media pipelines.",
     stacks: ["NODE.JS", "SOCKET.IO", "MONGODB", "REACT", "SUPABASE"],
     github: "https://github.com/sadSanta-07/Orbit",
+    // live: "https://noxly-coral.vercel.app",
+
   },
 
   {
-    title: "Decoder-Only Transformer",
+    title: "Telegram Cloud Bot",
     tag: "",
     description:
-      "A decoder-only Transformer from scratch using PyTorch, implementing self-attention, transformer blocks, and autoregressive text generation without high-level NLP libraries.",
-    stacks: ["PYTORCH", "PYTHON"],
-    github: "https://github.com/sadSanta-07/decoder-transformer-from-scratch",
+      "Telegram bot which gives u customized folder spaces to keep files arranged",
+    stacks: ["TypeScript", "PYTHON", "JavaScript"],
+    github: "https://github.com/sadSanta-07/teleCloudBot",
+  },
+  {
+    title: "ARCLY",
+    tag: "",
+    description:
+      "ARCLY is a 100% free, fully client-side resume builder built for developers and creatives.",
+    stacks: ["Next.js 16", "Tailwind ", "Zustand"],
+    github: "https://github.com/sadSanta-07/arcly#arcly",
+    // live: "https://arcly-resume.vercel.app/",
+
+
   },
 ];
 
