@@ -11,6 +11,15 @@ type AchievementSection = {
 
 export const projectData = [
   {
+    title: "Agent-Zero",
+    tag: "live",
+    description:
+      "Agent Zero is an autonomous execution system designed to solve one of the biggest flaws in modern productivity software.",
+    stacks: ["Typescript", "Firebase", "Node.js", "Express", "Gemini"],
+    github: "https://github.com/sadSanta-07/Agent-Zero",
+    // live: "https://noxly-coral.vercel.app",
+  },
+  {
     title: "SANTACLAW ",
     // tag: "live",
     description:
@@ -55,17 +64,6 @@ export const projectData = [
       "Telegram bot which gives u customized folder spaces to keep files arranged",
     stacks: ["TypeScript", "PYTHON", "JavaScript"],
     github: "https://github.com/sadSanta-07/teleCloudBot",
-  },
-  {
-    title: "ARCLY",
-    tag: "",
-    description:
-      "ARCLY is a 100% free, fully client-side resume builder built for developers and creatives.",
-    stacks: ["Next.js 16", "Tailwind ", "Zustand"],
-    github: "https://github.com/sadSanta-07/arcly#arcly",
-    // live: "https://arcly-resume.vercel.app/",
-
-
   },
 ];
 
