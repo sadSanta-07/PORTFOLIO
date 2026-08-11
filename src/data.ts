@@ -17,7 +17,6 @@ export const projectData = [
       "Agent Zero is an autonomous execution system designed to solve one of the biggest flaws in modern productivity software.",
     stacks: ["Typescript", "Firebase", "Node.js", "Express", "Gemini"],
     github: "https://github.com/sadSanta-07/Agent-Zero",
-    // live: "https://noxly-coral.vercel.app",
   },
   {
     title: "SANTACLAW ",
@@ -38,32 +37,12 @@ export const projectData = [
   },
 
   {
-    title: "NOJUDGEMENT",
+    title: "UPI Offline Mesh",
     tag: "",
     description:
-      "Real-time English speaking practice platform with WebRTC peer matching, chunk-based speech-to-text via Whisper, and LLaMA-powered post-call AI feedback.",
-    stacks: ["NEXT.JS", "WEBRTC", "SOCKET.IO", "GROQ/WHISPER", "LLAMA"],
-    github: "https://github.com/sadSanta-07/NoJudgement",
-  },
-
-  {
-    title: "ORBIT",
-    tag: "v2 coming soon",
-    description:
-      "Real-time collaborative platform with live discussion rooms, WebSocket messaging, modular REST API, and Cloudinary media pipelines.",
-    stacks: ["NODE.JS", "SOCKET.IO", "MONGODB", "REACT", "SUPABASE"],
-    github: "https://github.com/sadSanta-07/Orbit",
-    // live: "https://noxly-coral.vercel.app",
-
-  },
-
-  {
-    title: "Telegram Cloud Bot",
-    tag: "",
-    description:
-      "Telegram bot which gives u customized folder spaces to keep files arranged",
-    stacks: ["TypeScript", "PYTHON", "JavaScript"],
-    github: "https://github.com/sadSanta-07/teleCloudBot",
+      "a backend system that processes offline UPI payments for two people are in a basement with zero internet",
+    stacks: ["Crow", "CPP" , "OpenSSL"],
+    github: "https://github.com/sadSanta-07/OfflineUPIMesh-main",
   },
 ];
 
