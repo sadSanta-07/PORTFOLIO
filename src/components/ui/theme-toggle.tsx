@@ -5,30 +5,30 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 
 export function ThemeToggle() {
-    const { theme, setTheme, resolvedTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-    const updateStyles = useCallback((css: string) => {
-        if (typeof window === "undefined") return;
-        const styleId = "theme-transition-styles";
-        let styleElement = document.getElementById(styleId) as HTMLStyleElement;
+  const updateStyles = useCallback((css: string) => {
+    if (typeof window === "undefined") return;
+    const styleId = "theme-transition-styles";
+    let styleElement = document.getElementById(styleId) as HTMLStyleElement;
 
-        if (!styleElement) {
-            styleElement = document.createElement("style");
-            styleElement.id = styleId;
-            document.head.appendChild(styleElement);
-        }
-        styleElement.textContent = css;
-    }, []);
+    if (!styleElement) {
+      styleElement = document.createElement("style");
+      styleElement.id = styleId;
+      document.head.appendChild(styleElement);
+    }
+    styleElement.textContent = css;
+  }, []);
 
-    const toggleTheme = useCallback(() => {
-        const isDark = resolvedTheme === "dark";
+  const toggleTheme = useCallback(() => {
+    const isDark = resolvedTheme === "dark";
 
-        const animationCss = `
+    const animationCss = `
       ::view-transition-group(root) {
         animation-duration: 0.7s;
         animation-timing-function: cubic-bezier(0.87, 0, 0.13, 1);
@@ -74,34 +74,34 @@ export function ThemeToggle() {
       }
     `;
 
-        updateStyles(animationCss);
+    updateStyles(animationCss);
 
-        const switchTheme = () => {
-            setTheme(isDark ? "light" : "dark");
-        };
+    const switchTheme = () => {
+      setTheme(isDark ? "light" : "dark");
+    };
 
-        if (!document.startViewTransition) {
-            switchTheme();
-            return;
-        }
-
-        document.startViewTransition(switchTheme);
-    }, [resolvedTheme, setTheme, updateStyles]);
-
-    if (!mounted) {
-        return <div className="size-6 ml-2" />;
+    if (!document.startViewTransition) {
+      switchTheme();
+      return;
     }
 
-    const isDark = resolvedTheme === "dark";
+    document.startViewTransition(switchTheme);
+  }, [resolvedTheme, setTheme, updateStyles]);
 
-    return (
-        <button
-            type="button"
-            className="ml-2 text-neutral-400 hover:text-foreground transition-colors cursor-pointer flex items-center justify-center size-6"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-        >
-            {isDark ? <Sun size={16} /> : <Moon size={16} />}
-        </button>
-    );
+  if (!mounted) {
+    return <div className="size-6 ml-2" />;
+  }
+
+  const isDark = resolvedTheme === "dark";
+
+  return (
+    <button
+      type="button"
+      className="text-muted hover:text-foreground transition-colors cursor-pointer flex items-center justify-center size-6"
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+    >
+      {isDark ? <Sun size={16} /> : <Moon size={16} />}
+    </button>
+  );
 }
