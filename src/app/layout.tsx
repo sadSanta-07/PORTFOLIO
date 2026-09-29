@@ -3,6 +3,7 @@ import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import { BottomBlur } from "@/components/ui/EdgeBlur";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -19,9 +20,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased selection:bg-neutral-800 selection:text-white dark:selection:bg-neutral-200 dark:selection:text-black`}>
         <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
-          <Navbar />
-          {children}
-          <BottomBlur />
+          <SmoothScroll>
+            <Navbar />
+            {children}
+            <BottomBlur />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

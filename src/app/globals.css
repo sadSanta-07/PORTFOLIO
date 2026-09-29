@@ -17,14 +17,19 @@
   --surface: #fcfcfc;
   --text-main: #000000;
   --text-muted: #8c8c8c;
-  --border-color: #d1d5db; }
+  --border-color: #d1d5db;
+}
 
 .dark {
   --bg: #0a0a0a;
   --surface: #171717;
   --text-main: #fafafa;
   --text-muted: #a3a3a3;
-  --border-color: #272727; 
+  --border-color: #272727;
+}
+
+html {
+  scroll-behavior: auto;
 }
 
 body {
