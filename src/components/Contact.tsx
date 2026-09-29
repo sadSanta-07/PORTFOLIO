@@ -97,10 +97,8 @@ export function Contact() {
                 })}
             </div>
 
-            {/* Full-width bottom divider */}
-            <div className="relative h-px">
-                <div className="absolute left-1/2 top-0 w-screen -translate-x-1/2 border-t border-dashed border-border" />
-            </div>
+            {/* Stripe */}
+            <div className="stripe-divider relative left-1/2 h-6 w-screen -translate-x-1/2 border border-dashed border-border" />
         </section>
     );
 }

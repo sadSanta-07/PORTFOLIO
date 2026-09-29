@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 @theme {
   --color-background: var(--bg);
@@ -39,10 +41,12 @@ body {
 }
 
 .stripe-divider {
-  background: repeating-linear-gradient(135deg,
-      transparent 0px,
-      transparent 7px,
-      var(--border-color) 7px,
-      var(--border-color) 8px);
+  background: repeating-linear-gradient(
+    135deg,
+    transparent 0px,
+    transparent 7px,
+    var(--border-color) 7px,
+    var(--border-color) 8px
+  );
   opacity: 0.75;
 }
