@@ -37,3 +37,12 @@ body {
   color: var(--color-primary);
   font-family: var(--font-sans);
 }
+
+.stripe-divider {
+  background: repeating-linear-gradient(135deg,
+      transparent 0px,
+      transparent 7px,
+      var(--border-color) 7px,
+      var(--border-color) 8px);
+  opacity: 0.75;
+}

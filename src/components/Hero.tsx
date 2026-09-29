@@ -61,7 +61,7 @@ export function Hero() {
                             Sahil Singh
                             <BadgeCheck
                                 size={22}
-                                className="text-white fill-[#1d9bf0] sm:size-6"
+                                className="text-background fill-[#1d9bf0] sm:size-6"
                                 strokeWidth={1.5}
                             />
                         </span>
@@ -74,8 +74,10 @@ export function Hero() {
             </div>
 
             {/* Profile Metadata */}
-            <div className="mx-4 sm:mx-6 mt-6 border-y border-dashed border-border py-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[15px] text-[#8c8c8c] leading-[1.8] font-sans antialiased">
+            <div className="mx-4 sm:mx-6 mt-6 py-4">
+                {/* stripe divider */}
+                <div className="stripe-divider relative left-1/2 h-6 w-screen -translate-x-1/2 border border-dashed border-border" />
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-[15px] text-[#8c8c8c] leading-[1.8] font-sans antialiased">
 
                     <div className="flex items-center gap-3">
                         <GraduationCap className="size-4 shrink-0" />
@@ -103,6 +105,12 @@ export function Hero() {
                 </div>
             </div>
 
+            <div className="relative w-full mt-1  sm:mt-2  h-px">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen border-b border-dashed border-border pointer-events-none z-[-1]"></div>
+            </div>
+
+            {/* About */}
+
             <div className="mt-6 sm:mt-7 px-4 sm:px-6 z-10 w-full">
                 <div className={`${caveat.className} text-5xl text-primary mb-3`}>
                     hello
@@ -127,6 +135,7 @@ export function Hero() {
                 </Link>
 
             </div>
+            <div className="stripe-divider relative left-1/2 mt-8 h-6 w-screen -translate-x-1/2 border border-dashed border-border" />
 
         </section>
     );
