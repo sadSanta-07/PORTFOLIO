@@ -1,6 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { Contact } from "@/components/Contact";
 import { Projects } from "@/components/Projects";
+import { TechStack } from "@/components/TechStack";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Contact />
       <Projects />
+      <TechStack />
     </main>
   );
 }
