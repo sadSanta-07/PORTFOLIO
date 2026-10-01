@@ -2,6 +2,7 @@ import { Hero } from "@/components/Hero";
 import { Contact } from "@/components/Contact";
 import { Projects } from "@/components/Projects";
 import { TechStack } from "@/components/TechStack";
+import { GitHubActivity } from "@/components/GitHubActivity";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Contact />
       <Projects />
       <TechStack />
+      <GitHubActivity />
     </main>
   );
 }
