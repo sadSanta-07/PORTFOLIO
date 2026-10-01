@@ -44,7 +44,9 @@ const links = [
 
 export function Contact() {
     return (
-        <section className="w-full max-w-200 mx-auto border-x border-dashed border-border">
+        <section 
+        id="contact"
+        className="w-full max-w-200 mx-auto border-x border-dashed border-border">
             {/* Heading */}
             <div className="px-2 pt-0 pb-2 sm:px-4">
                 <h2

@@ -34,6 +34,9 @@ type ContributionCalendar = {
 
 export function GitHubActivity() {
   const [activities, setActivities] = useState<Activity[]>([]);
+  const [totalContributions, setTotalContributions] =
+    useState(0);
+
   const [loading, setLoading] = useState(true);
 
   const calendarRef = useRef<HTMLDivElement>(null);
@@ -50,6 +53,10 @@ export function GitHubActivity() {
           (week) => week.contributionDays,
         );
 
+        setTotalContributions(
+          calendar.totalContributions,
+        );
+
         setActivities(
           days.map((day) => ({
             date: day.date,
@@ -57,12 +64,14 @@ export function GitHubActivity() {
             level:
               day.contributionCount === 0
                 ? 0
-                : day.contributionLevel === "FIRST_QUARTILE"
+                : day.contributionLevel ===
+                    "FIRST_QUARTILE"
                   ? 1
-                  : day.contributionLevel === "SECOND_QUARTILE"
+                  : day.contributionLevel ===
+                      "SECOND_QUARTILE"
                     ? 2
                     : day.contributionLevel ===
-                      "THIRD_QUARTILE"
+                        "THIRD_QUARTILE"
                       ? 3
                       : 4,
           })),
@@ -70,12 +79,16 @@ export function GitHubActivity() {
       })
       .catch(() => {
         setActivities([]);
+        setTotalContributions(0);
       })
       .finally(() => {
         setLoading(false);
       });
   }, []);
 
+  /*
+   * Start at the latest/rightmost contribution.
+   */
   useEffect(() => {
     if (loading || activities.length === 0) return;
 
@@ -141,12 +154,10 @@ export function GitHubActivity() {
       {/* Calendar */}
       <div className="px-2 py-6 sm:px-4">
         <div
-          ref={calendarRef}
           className="
             github-activity-calendar
             w-full
-            overflow-x-auto
-            overflow-y-hidden
+            overflow-hidden
             rounded-2xl
             border
             border-border
@@ -155,82 +166,106 @@ export function GitHubActivity() {
             sm:p-4
           "
         >
-          <ActivityCalendar
-            data={activities}
-            blockSize={14}
-            blockMargin={3}
-            blockRadius={3}
-            fontSize={13}
-            maxLevel={4}
-            showWeekdayLabels={false}
-            showColorLegend={false}
-            showTotalCount={false}
-            showMonthLabels={true}
-            theme={{
-              light: [
-                "var(--github-level-0)",
-                "var(--github-level-1)",
-                "var(--github-level-2)",
-                "var(--github-level-3)",
-                "var(--github-level-4)",
-              ],
-              dark: [
-                "var(--github-level-0)",
-                "var(--github-level-1)",
-                "var(--github-level-2)",
-                "var(--github-level-3)",
-                "var(--github-level-4)",
-              ],
-            }}
-            renderBlock={(block, activity) => {
-              const y = Number(block.props.y ?? 0);
-              const center = 7;
+          {/* Scrollable calendar */}
+          <div
+            ref={calendarRef}
+            className="
+              w-full
+              overflow-x-auto
+              overflow-y-hidden
+            "
+          >
+            <ActivityCalendar
+              data={activities}
+              blockSize={14}
+              blockMargin={3}
+              blockRadius={3}
+              fontSize={13}
+              maxLevel={4}
+              showWeekdayLabels={false}
+              showColorLegend={false}
+              showTotalCount={false}
+              showMonthLabels={true}
+              theme={{
+                light: [
+                  "var(--github-level-0)",
+                  "var(--github-level-1)",
+                  "var(--github-level-2)",
+                  "var(--github-level-3)",
+                  "var(--github-level-4)",
+                ],
+                dark: [
+                  "var(--github-level-0)",
+                  "var(--github-level-1)",
+                  "var(--github-level-2)",
+                  "var(--github-level-3)",
+                  "var(--github-level-4)",
+                ],
+              }}
+              renderBlock={(block, activity) => {
+                const y = Number(
+                  block.props.y ?? 0,
+                );
 
-              return (
-                <g>
-                  {block}
+                const center = 7;
 
-                  {activity.count > 0 && (
-                    <text
-                      x={center}
-                      y={y + center}
-                      textAnchor="middle"
-                      dominantBaseline="central"
-                      fontSize={7}
-                      fontWeight={600}
-                      fill={
-                        activity.level >= 3
-                          ? "var(--github-number-light)"
-                          : "var(--github-number-dark)"
-                      }
-                      pointerEvents="none"
-                    >
-                      {activity.count}
-                    </text>
-                  )}
-                </g>
-              );
-            }}
-            tooltips={{
-              activity: {
-                withArrow: true,
-                text: (activity) =>
-                  `${activity.count} contributions on ${new Date(
-                    `${activity.date}T00:00:00`,
-                  ).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  })}`,
-              },
-            }}
-          />
+                return (
+                  <g>
+                    {block}
+
+                    {activity.count > 0 && (
+                      <text
+                        x={center}
+                        y={y + center}
+                        textAnchor="middle"
+                        dominantBaseline="central"
+                        fontSize={7}
+                        fontWeight={600}
+                        fill={
+                          activity.level >= 3
+                            ? "var(--github-number-light)"
+                            : "var(--github-number-dark)"
+                        }
+                        pointerEvents="none"
+                      >
+                        {activity.count}
+                      </text>
+                    )}
+                  </g>
+                );
+              }}
+              tooltips={{
+                activity: {
+                  withArrow: true,
+                  text: (activity) =>
+                    `${activity.count} contributions on ${new Date(
+                      `${activity.date}T00:00:00`,
+                    ).toLocaleDateString(
+                      "en-US",
+                      {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      },
+                    )}`,
+                },
+              }}
+            />
+          </div>
+
+          {/* Total contributions */}
+          <div className="px-1 pt-3 text-[13px] text-muted sm:px-2 sm:pt-4">
+            <span className="text-primary">
+              {totalContributions.toLocaleString()}
+            </span>{" "}
+            contributions in the last year
+          </div>
         </div>
       </div>
 
       {/* Full-width divider */}
       <div className="relative h-px">
-        <div className="absolute left-1/2 top-0 w-screen -translate-x-1/2 border-t border-dashed border-border" />
+        <div className="stripe-divider relative left-1/2 mt-8 h-6 w-screen -translate-x-1/2 border border-dashed border-border" />
       </div>
     </section>
   );
