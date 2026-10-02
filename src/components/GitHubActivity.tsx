@@ -85,10 +85,6 @@ export function GitHubActivity() {
         setLoading(false);
       });
   }, []);
-
-  /*
-   * Start at the latest/rightmost contribution.
-   */
   useEffect(() => {
     if (loading || activities.length === 0) return;
 

@@ -37,7 +37,6 @@ export function Hero() {
             -scale-y-100
         "
     />
-            {/* Banner GIF Container */}
             <div className="w-full h-40 sm:h-54 overflow-hidden relative z-0 rounded-[2.5px]">
                 <Image
                     src="/banner.gif"
@@ -49,15 +48,11 @@ export function Hero() {
                 />
             </div>
 
-            {/* The horizontal dashed grid line */}
             <div className="relative w-full mt-1 mb-4 sm:mt-2 sm:mb-5 h-px">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen border-b border-dashed border-border pointer-events-none z-[-1]"></div>
             </div>
 
-            {/* Profile Info Area */}
             <div className="flex flex-row items-center gap-4 sm:gap-6 px-4 sm:px-6 z-10">
-
-                {/* Profile Picture Frame */}
                 <div className="relative shrink-0 rounded-xl border border-border bg-surface p-1 sm:p-1.25 shadow-sm">
                     <div className="relative size-20 sm:size-24 overflow-hidden rounded-lg bg-muted/20">
                         <Image
@@ -70,7 +65,6 @@ export function Hero() {
                     </div>
                 </div>
 
-                {/* Text Content */}
                 <div className="flex flex-col justify-center min-w-0">
                     <h1 className={`${instrumentSerif.className} text-[26px] sm:text-4xl text-primary leading-tight`}>
                         <span className="block sm:inline">Hi, I&apos;m </span>
@@ -91,7 +85,6 @@ export function Hero() {
                 </div>
             </div>
 
-            {/* Profile Metadata */}
             <div className="mx-4 sm:mx-6 mt-6 py-4">
                 {/* stripe divider */}
                 <div className="stripe-divider relative left-1/2 h-6 w-screen -translate-x-1/2 border border-dashed border-border" />
