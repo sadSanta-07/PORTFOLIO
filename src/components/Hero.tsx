@@ -26,7 +26,8 @@ const caveat = Caveat({
 
 export function Hero() {
     return (
-        <section className="w-full max-w-200 mx-auto border-x border-dashed border-border px-2 sm:px-6 md:px-2 py-1 flex flex-col relative pb-8">
+        <section
+        id="home" className="w-full max-w-200 mx-auto border-x border-dashed border-border px-2 sm:px-6 md:px-2 py-1 flex flex-col relative pb-8">
             <LeafDecoration
         side="right"
         className="

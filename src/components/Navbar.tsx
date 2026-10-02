@@ -37,7 +37,7 @@ const inter = Inter({
 const NAV_ITEMS = [
   {
     name: "Home",
-    path: "/",
+    path: "/#home",
     target: "home",
   },
   {
