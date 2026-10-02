@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
+import Image from "next/image";
 import { Instrument_Serif } from "next/font/google";
 
 import {
@@ -65,13 +65,13 @@ export function GitHubActivity() {
               day.contributionCount === 0
                 ? 0
                 : day.contributionLevel ===
-                    "FIRST_QUARTILE"
+                  "FIRST_QUARTILE"
                   ? 1
                   : day.contributionLevel ===
-                      "SECOND_QUARTILE"
+                    "SECOND_QUARTILE"
                     ? 2
                     : day.contributionLevel ===
-                        "THIRD_QUARTILE"
+                      "THIRD_QUARTILE"
                       ? 3
                       : 4,
           })),
@@ -263,9 +263,28 @@ export function GitHubActivity() {
         </div>
       </div>
 
-      {/* Full-width divider */}
-      <div className="relative h-px">
-        <div className="stripe-divider relative left-1/2 mt-8 h-6 w-screen -translate-x-1/2 border border-dashed border-border" />
+      {/* Decorative leaf */}
+      <div className="relative h-40 w-full overflow-hidden">
+        <Image
+          src="/leaf.svg"
+          alt=""
+          width={180}
+          height={180}
+          className="
+            absolute
+            right-4
+            top-1/2
+            -translate-y-1/2
+            w-40
+            sm:w-36
+            md:w-40
+            opacity-90
+            object-contain
+            scale-y-[-1]
+            [mask-image:linear-gradient(to_right,black_0%,black_78%,transparent_100%)]
+          "
+          aria-hidden="true"
+        />
       </div>
     </section>
   );

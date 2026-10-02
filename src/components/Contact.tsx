@@ -48,7 +48,7 @@ export function Contact() {
         id="contact"
         className="w-full max-w-200 mx-auto border-x border-dashed border-border">
             {/* Heading */}
-            <div className="px-2 pt-0 pb-2 sm:px-4">
+            <div className="px-2 mb-2 pt-0 pb-2 sm:px-4">
                 <h2
                     className={`${instrumentSerif.className} text-4xl leading-none text-primary`}
                 >

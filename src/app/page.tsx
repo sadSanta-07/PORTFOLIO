@@ -4,6 +4,8 @@ import { Projects } from "@/components/Projects";
 import { TechStack } from "@/components/TechStack";
 import { GitHubActivity } from "@/components/GitHubActivity";
 import { Experience } from "@/components/Experience";
+import { Quote } from "@/components/Quote";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -12,8 +14,10 @@ export default function Home() {
       <Contact />
       <Projects />
       <TechStack />
+      <Experience />
       <GitHubActivity />
-      < Experience />
+      <Quote />
+      <Footer />
     </main>
   );
 }

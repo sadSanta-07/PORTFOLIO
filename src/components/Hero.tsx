@@ -17,6 +17,7 @@ import {
     SiMongodb,
 } from "react-icons/si";
 import { RoughUnderline } from "@/components/ui/rough-underline";
+import { LeafDecoration } from "@/components/ui/LeafDecoration";
 
 const instrumentSerif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
 const caveat = Caveat({
@@ -26,7 +27,16 @@ const caveat = Caveat({
 export function Hero() {
     return (
         <section className="w-full max-w-200 mx-auto border-x border-dashed border-border px-2 sm:px-6 md:px-2 py-1 flex flex-col relative pb-8">
-
+            <LeafDecoration
+        side="right"
+        className="
+            hidden
+            lg:block
+            top-[52%]
+            w-56
+            -scale-y-100
+        "
+    />
             {/* Banner GIF Container */}
             <div className="w-full h-40 sm:h-54 overflow-hidden relative z-0 rounded-[2.5px]">
                 <Image
@@ -51,7 +61,7 @@ export function Hero() {
                 <div className="relative shrink-0 rounded-xl border border-border bg-surface p-1 sm:p-1.25 shadow-sm">
                     <div className="relative size-20 sm:size-24 overflow-hidden rounded-lg bg-muted/20">
                         <Image
-                            src="/pfp.png"
+                            src="/pfp1.png"
                             alt="Sahil Singh"
                             fill
                             className="object-cover"
@@ -119,9 +129,9 @@ export function Hero() {
 
             {/* About */}
 
-            <div 
-            id="about"
-            className="mt-6 sm:mt-7 px-4 sm:px-6 z-10 w-full">
+            <div
+                id="about"
+                className="mt-6 sm:mt-7 px-4 sm:px-6 z-10 w-full">
                 <div className={`${caveat.className} text-5xl text-primary mb-3`}>
                     hello
                 </div>

@@ -50,6 +50,11 @@ const NAV_ITEMS = [
     path: "/#experience",
     target: "experience",
   },
+  {
+    name: "Contact",
+    path: "/#contact",
+    target: "contact",
+  },
 ];
 
 export default function Navbar() {
@@ -67,10 +72,6 @@ export default function Navbar() {
   const [activeSection, setActiveSection] =
     useState("home");
 
-  /*
-   * Keep the navbar's active state synced with
-   * the section currently visible on the homepage.
-   */
   useEffect(() => {
     if (pathname !== "/") {
       setActiveSection("");
@@ -120,9 +121,7 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, [pathname]);
 
-  /*
-   * Command palette shortcut
-   */
+  /* Command palette shortcut*/
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (
@@ -397,9 +396,7 @@ export default function Navbar() {
                 ${isMobileMenuOpen
                   ? "px-1 shadow-sm"
                   : ""
-                }
-              `}
-            >
+                }`}>
               <AnimatePresence mode="wait">
                 {!isMobileMenuOpen ? (
                   <motion.button
