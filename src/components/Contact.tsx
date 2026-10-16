@@ -3,9 +3,9 @@ import { Instrument_Serif } from "next/font/google";
 import { PiGithubLogo } from "react-icons/pi";
 import { FiLinkedin } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
+import { SiGoogledocs } from "react-icons/si";
 import {
     Mail,
-    Paperclip,
     ArrowUpRight,
 } from "lucide-react";
 
@@ -38,7 +38,7 @@ const links = [
     {
         name: "Resume",
         href: "https://drive.google.com/file/d/1QK_85miZxc-v16yfxMQAq43bwdoZPQdd/view?usp=sharing",
-        icon: Paperclip,
+        icon: SiGoogledocs,
     },
 ];
 
