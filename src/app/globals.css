@@ -11,7 +11,7 @@
   --color-muted: var(--text-muted);
   --color-border: var(--border-color);
 
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-sans);
   --font-serif: var(--font-instrument);
   --font-mono: var(--font-jetbrains);
 }
