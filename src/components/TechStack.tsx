@@ -81,7 +81,7 @@ export function TechStack() {
                         onChange={(e) =>
                             setActiveCategory(e.target.value as Category)
                         }
-                        className="h-9 appearance-none rounded-md border border-border bg-surface px-3 pr-8 text-[14px] font-medium text-primary outline-none"
+                        className="h-9 appearance-none rounded-md border border-border bg-surface px-3 pr-8 text-[14px] font-medium text-primary outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     >
                         {categories.map((category) => (
                             <option key={category} value={category}>
