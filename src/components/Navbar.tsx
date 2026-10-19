@@ -6,10 +6,7 @@ import { Menu, Search, Command, X } from "lucide-react";
 
 import { usePathname } from "next/navigation";
 
-import {
-  Instrument_Serif,
-  Inter,
-} from "next/font/google";
+import { Instrument_Serif } from "next/font/google";
 
 import {
   motion,
@@ -27,10 +24,6 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
-  subsets: ["latin"],
-});
-
-const inter = Inter({
   subsets: ["latin"],
 });
 
@@ -218,7 +211,6 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <nav
             className={`
-              ${inter.className}
               hidden
               items-center
               gap-5
@@ -429,7 +421,6 @@ export default function Navbar() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     className={`
-                      ${inter.className}
                       flex
                       h-full
                       items-center
