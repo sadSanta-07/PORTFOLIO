@@ -1,5 +1,6 @@
-
 import { NextResponse } from "next/server";
+
+export const revalidate = 1800;
 
 const query = `
   query($from: DateTime!, $to: DateTime!) {
@@ -71,7 +72,8 @@ export async function GET() {
           to: to.toISOString(),
         },
       }),
-      cache: "no-store",
+      cache: "force-cache",
+      next: { revalidate: 1800 },
     });
 
     const data = await response.json();
@@ -86,7 +88,7 @@ export async function GET() {
 
     return NextResponse.json(data, {
       headers: {
-        "Cache-Control": "no-store, max-age=0",
+        "Cache-Control": "public, s-maxage=1800, stale-while-revalidate=86400",
       },
     });
   } catch (error) {

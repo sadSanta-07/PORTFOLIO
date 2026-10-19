@@ -44,7 +44,7 @@ const links = [
 
 export function Contact() {
     return (
-        <section 
+        <section
         id="contact"
         className="w-full max-w-200 mx-auto border-x border-dashed border-border">
             {/* Heading */}
@@ -70,6 +70,8 @@ export function Contact() {
                         <Link
                             key={link.name}
                             href={link.href}
+                            aria-label={link.name}
+                            title={link.name}
                             target={
                                 link.href.startsWith("mailto:")
                                     ? undefined
@@ -82,7 +84,7 @@ export function Contact() {
                             }
                             className="group flex items-center justify-center gap-3 border-b border-r border-dashed border-border px-2 py-2 transition-colors hover:bg-surface/60 last:border-r-0 sm:justify-start sm:px-3"
                         >
-                            <span className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-border bg-background">
+                            <span className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-border bg-background" aria-hidden="true">
                                 <Icon className="size-6" />
                             </span>
 
@@ -92,6 +94,7 @@ export function Contact() {
                                 <ArrowUpRight
                                     className="size-4 shrink-0 text-muted transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                                     strokeWidth={1.8}
+                                    aria-hidden="true"
                                 />
                             </span>
                         </Link>

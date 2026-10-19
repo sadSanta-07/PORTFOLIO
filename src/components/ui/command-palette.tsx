@@ -200,6 +200,7 @@ export function CommandPalette({
 
               <input
                 ref={inputRef}
+                aria-label="Search pages, projects, or actions"
                 value={query}
                 onChange={(event) => {
                   setQuery(event.target.value);
