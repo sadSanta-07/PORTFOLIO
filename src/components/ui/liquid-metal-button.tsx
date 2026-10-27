@@ -3,12 +3,16 @@
 import { Sparkles } from "lucide-react";
 import type React from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
-
 interface LiquidMetalButtonProps {
   label?: string;
   onClick?: () => void;
   viewMode?: "text" | "icon";
 }
+
+type ShaderMountInstance = {
+  destroy?: () => void;
+  setSpeed?: (speed: number) => void;
+};
 
 export function LiquidMetalButton({
   label = "Get Started",
@@ -22,7 +26,7 @@ export function LiquidMetalButton({
   >([]);
   const shaderRef = useRef<HTMLDivElement>(null);
   // biome-ignore lint/suspicious/noExplicitAny: External library without types
-  const shaderMount = useRef<any>(null);
+  const shaderMount = useRef<ShaderMountInstance | null>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const rippleId = useRef(0);
 

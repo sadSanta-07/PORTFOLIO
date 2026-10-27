@@ -62,8 +62,8 @@ export function Experience() {
                                     py-7
                                     text-left
                                     transition-colors
-                                    hover:bg-black/[0.015]
-                                    dark:hover:bg-white/[0.025]
+                                    hover:bg-black/1.5
+                                    dark:hover:bg-white/2.5
                                     sm:px-6
                                 "
                                 >

@@ -3,7 +3,6 @@ import { Instrument_Serif, JetBrains_Mono, Geist } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import { BottomBlur } from "@/components/ui/EdgeBlur";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -77,13 +76,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
-      <body className={`${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased selection:bg-neutral-800 selection:text-white dark:selection:bg-neutral-200 dark:selection:text-black`}>
+      <body className={`${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased`}>
         <ThemeProvider>
-          <SmoothScroll>
+
             <Navbar />
             {children}
             <BottomBlur />
-          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

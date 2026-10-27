@@ -4,6 +4,8 @@
 
 @import "shadcn/tailwind.css";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
   --color-background: var(--bg);
   --color-surface: var(--surface);
@@ -32,28 +34,42 @@
 
   --github-number-light: #ffffff;
   --github-number-dark: #1f2937;
+  --shadow-raised: 0 0 0 1px oklch(0 0 0 / 0.06), 0 1px 2px oklch(0 0 0 / 0.06), 0 6px 16px -6px oklch(0 0 0 / 0.12);
 }
 
 .dark {
-  --bg: #0a0a0a;
-  --surface: #171717;
-  --text-main: #fafafa;
-  --text-muted: #a3a3a3;
-  --border-color: #272727;
+  --bg: #0b111e;
+  --surface: #131b2e;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #1e293b;
 
   /* GitHub activity - dark */
-  --github-level-0: #262626;
-  --github-level-1: #164e25;
-  --github-level-2: #217a38;
-  --github-level-3: #32a852;
-  --github-level-4: #5bd879;
+  --github-level-0: #162033;
+  --github-level-1: #0e4429;
+  --github-level-2: #006d32;
+  --github-level-3: #26a641;
+  --github-level-4: #39d353;
 
   --github-number-light: #ffffff;
-  --github-number-dark: #f5f5f5;
+  --github-number-dark: #f8fafc;
+  --shadow-raised: 0 0 0 1px oklch(1 0 0 / 0.08), 0 1px 2px oklch(0 0 0 / 0.4), 0 6px 16px -6px oklch(0 0 0 / 0.6);
 }
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
+}
+
+::selection,
+*::selection {
+  background-color: #bae6fd !important;
+  color: #0369a1 !important;
+}
+
+.dark ::selection,
+.dark *::selection {
+  background-color: #0369a1 !important;
+  color: #f0f9ff !important;
 }
 
 body {
@@ -116,4 +132,18 @@ body {
     width: 760px;
     max-width: none;
   }
+}
+
+/* Hide scrollbars while keeping the content scrollable */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@theme inline {
+  --shadow-raised: var(--shadow-raised);
 }

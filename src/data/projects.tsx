@@ -1,99 +1,132 @@
-import type { Project } from "@/components/ProjectCard";
+import type { ComponentType } from "react";
+import {
+  SiTypescript,
+  SiWebrtc,
+  SiDocker,
+  SiNodedotjs,
+  SiBun,
+  SiNextdotjs,
+  SiSocketdotio,
+  SiReact,
+  SiFirebase,
+  SiGooglegemini,
+} from "react-icons/si";
+import { Sparkles } from "lucide-react";
+
+export type TechItem = {
+  name: string;
+  icon: ComponentType<{ className?: string }>;
+};
+
+export type Project = {
+  title: string;
+  year?: string;
+  subtitle: string;
+  description: string;
+  bullets?: string[];
+  tags: string[];
+  tech: TechItem[];
+  github?: string;
+  live?: string;
+  image: string;
+  gradientClass: string;
+  badge?: {
+    type: "ribbon" | "sticker" | "tag-orange" | "tag-cyan";
+    text: string;
+  };
+};
 
 export const projects: Project[] = [
   {
-    title: "OfflineUPIMesh",
+    title: "MYNA",
     year: "2026",
-    subtitle: "Distributed offline payment engine",
+    subtitle: "Peer-to-peer terminal sharing via WebRTC.",
     description:
-      "A high-performance C++ payment system built for peer-to-peer transactions over unreliable networks, with deferred settlement, duplicate-packet protection, and secure transaction handling.",
-    bullets: [
-      "Architected a mesh-routed payment microservice with deferred ledger settlement across untrusted intermediary nodes.",
-      "Built a highly concurrent ingestion pipeline using mutex-protected state and O(1) hash lookups to suppress duplicate packet storms and prevent double-spending.",
-      "Implemented AES-GCM payload encryption wrapped with RSA-2048 and enforced ACID-compliant debit/credit transactions through SQLite.",
+      "Share an active terminal session directly through a link. Built with host approval controls, freeze mode, and isolated Docker sandboxing.",
+    tags: ["TypeScript", "WebRTC", "Docker", "Node.js"],
+    tech: [
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "WebRTC", icon: SiWebrtc },
+      { name: "Docker", icon: SiDocker },
+      { name: "Node.js", icon: SiNodedotjs },
     ],
-    tags: [
-      "C++20",
-      "Crow",
-      "ASIO",
-      "SQLite",
-      "OpenSSL",
-      "CMake",
-    ],
-    github:
-      "https://github.com/sadSanta-07/OfflineUPIMesh-main",
+    github: "https://github.com/sadSanta-07/myna",
+    live: "https://myna-alpha.vercel.app/",
+    image: "/projects/myna.png",
+    gradientClass:
+      "bg-gradient-to-br from-white via-lime-400 to-slate-950 dark:from-neutral-900 dark:via-lime-500/50 dark:to-neutral-950",
+    badge: {
+      type: "ribbon",
+      text: "WebRTC P2P",
+    },
   },
-
   {
     title: "SantaClaw",
     year: "2026",
-    subtitle: "Autonomous agentic coding framework",
+    subtitle: "AI coding agent that asks before it acts.",
     description:
-      "An autonomous LLM-driven software engineering system that turns intent into repository analysis, planning, execution, diff generation, and human-approved changes.",
-    bullets: [
-      "Engineered an autonomous coding agent with tool-augmented reasoning, structured function calling, and intent-based repository analysis.",
-      "Designed an isolated testing and staging workflow where automated file modifications require explicit human approval before execution.",
-      "Containerized the execution stack and shipped it to Docker Hub for zero-install deployment through a single CLI command.",
+      "A terminal-native agent that explores codebases, plans multi-step changes, and stages reviewable git diffs so you always stay in control.",
+    tags: ["TypeScript", "Bun", "Docker", "AI SDK"],
+    tech: [
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Bun", icon: SiBun },
+      { name: "Docker", icon: SiDocker },
+      { name: "AI SDK", icon: Sparkles },
     ],
-    tags: [
-      "TypeScript",
-      "AI SDK",
-      "Docker",
-      "LLMs",
-    ],
-    github:
-      "https://github.com/sadSanta-07/Agent-Zero",
+    github: "https://github.com/sadSanta-07/SANTACLAW",
+    live: "https://santaclaw.vercel.app/",
+    image: "/projects/santaclaw.png",
+    gradientClass:
+      "bg-gradient-to-br from-white via-blue-500 to-slate-950 dark:from-neutral-900 dark:via-blue-600/50 dark:to-neutral-950",
+    badge: {
+      type: "sticker",
+      text: "Diff-First Agent",
+    },
   },
-
   {
     title: "NoJudgement",
     year: "2026",
-    subtitle: "Real-time AI speaking practice platform",
+    subtitle: "AI-powered live conversational fluency practice.",
     description:
-      "A real-time communication platform combining peer matchmaking, WebRTC, speech recognition, and LLM-powered feedback into a single AI-assisted speaking experience.",
-    bullets: [
-      "Built live peer matchmaking with WebRTC and Socket.io, including fixes for race conditions in singleton socket flows.",
-      "Developed chunk-based Whisper speech-to-text pipelines with LLaMA-driven feedback for conversational AI interactions.",
-      "Designed PostgreSQL schemas with Prisma ORM for reporting pipelines, streak tracking, and high-throughput data processing.",
+      "Real-time speech practice pairing peers with instant Whisper AI feedback to catch filler words, analyze pacing, and build speaking confidence.",
+    tags: ["Next.js", "TypeScript", "WebRTC", "Socket.io"],
+    tech: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "WebRTC", icon: SiWebrtc },
+      { name: "Socket.io", icon: SiSocketdotio },
     ],
-    tags: [
-      "Next.js",
-      "React",
-      "WebRTC",
-      "Socket.io",
-      "PostgreSQL",
-      "Prisma",
-      "Python",
-      "Whisper",
-      "LLaMA",
-    ],
-    github:
-      "https://github.com/sadSanta-07/NoJudgement",
-    live: "https://no-judgement.vercel.app/"
+    github: "https://github.com/sadSanta-07/NoJudgement",
+    live: "https://no-judgement.vercel.app/",
+    image: "/projects/nojudgement.png",
+    gradientClass:
+      "bg-gradient-to-br from-white via-orange-500 to-slate-950 dark:from-neutral-900 dark:via-orange-600/50 dark:to-neutral-950",
+    badge: {
+      type: "tag-orange",
+      text: "SPEECH AI · REAL-TIME",
+    },
   },
-
   {
-    title: "Agent-Zero",
+    title: "Agent Zero",
     year: "2026",
-    subtitle: "Autonomous multi-agent productivity system",
+    subtitle: "Autonomous agent for Google Workspace.",
     description:
-      "A multi-agent productivity system that turns natural-language intent into executable workflows across Gmail, Calendar, and other Google Workspace services.",
-    bullets: [
-      "Built specialized agents for triage, planning, memory, proxy actions, and emergency workflows.",
-      "Designed a persistent Memory Matrix for resolving people, context, and recurring information across tasks.",
-      "Integrated Gmail, Calendar, Docs, voice capture, and proactive inbox scanning into a unified execution pipeline.",
+      "Multi-agent system that converts voice notes and inbox chatter into structured actions across Gmail, Google Calendar, and Google Docs.",
+    tags: ["React", "TypeScript", "Firebase", "Gemini"],
+    tech: [
+      { name: "React", icon: SiReact },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Firebase", icon: SiFirebase },
+      { name: "Gemini AI", icon: SiGooglegemini },
     ],
-    tags: [
-      "React",
-      "TypeScript",
-      "Gemini",
-      "Firebase",
-      "Firestore",
-      "Node.js",
-      "Express",
-    ],
-    github:
-      "https://github.com/sadSanta-07/Agent-Zero",
+    github: "https://github.com/sadSanta-07/Agent-Zero",
     live: "https://agentzero-18082.web.app/",
+    image: "/projects/agent-zero.png",
+    gradientClass:
+      "bg-gradient-to-br from-white via-cyan-500 to-slate-950 dark:from-neutral-900 dark:via-cyan-600/50 dark:to-neutral-950",
+    badge: {
+      type: "tag-cyan",
+      text: "MULTI-AGENT · WORKSPACE",
+    },
   },
 ];
