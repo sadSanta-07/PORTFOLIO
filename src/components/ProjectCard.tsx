@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { PiArrowUpRight, PiGithubLogo } from "react-icons/pi";
+import { PiGithubLogo } from "react-icons/pi";
 
 import { LiquidMetalButton } from "@/components/ui/liquid-metal-button";
 
@@ -14,6 +14,7 @@ export type Project = {
   tags: string[];
   github?: string;
   live?: string;
+  logo?: string;
 };
 
 interface ProjectCardProps {
@@ -38,7 +39,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {project.subtitle && (
-          <p className="mt-2 max-w-[260px] text-[16px] leading-6 text-muted">
+          <p className="mt-2 max-w-65 text-[16px] leading-6 text-muted">
             {project.subtitle}
           </p>
         )}
@@ -53,7 +54,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 rel="noopener noreferrer"
                 className="inline-flex h-10 items-center gap-2 rounded-xl bg-primary px-4 text-[14px] font-medium text-background transition-opacity hover:opacity-80"
               >
-                <PiGithubLogo className="size-[17px]" />
+                <PiGithubLogo className="size-4.25" />
                 GitHub
               </Link>
             )}

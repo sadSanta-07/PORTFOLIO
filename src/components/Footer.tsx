@@ -1,7 +1,13 @@
-import { Inter } from "next/font/google";
+
+import { Inter, Caveat } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
+});
+
+const signature = Caveat({
+  subsets: ["latin"],
+  weight: "500",
 });
 
 export function Footer() {
@@ -23,24 +29,33 @@ export function Footer() {
           border-dashed
           border-border
           px-6
-          py-12
+          py-10
           text-center
-          text-[15px]
-          leading-relaxed
-          text-muted
-          sm:py-14
+          sm:py-12
         `}
       >
-        <p>
-          Designed &amp; Developed by{" "}
-          <span className="font-semibold text-primary">
+        <div className="flex items-center justify-center gap-4">
+          <span
+            className={`
+      ${signature.className}
+      -rotate-3
+      text-4xl
+      leading-none
+      tracking-tight
+      text-primary
+      transition-transform
+      duration-300
+      hover:rotate-0
+    `}
+            aria-label="Signed by Sahil"
+          >
             Sahil
           </span>
-        </p>
 
-        <p className="mt-2">
-          © 2026 All rights reserved.
-        </p>
+          <p className="text-xs text-muted">
+            © 2026 Sahil Singh.
+          </p>
+        </div>
       </footer>
     </>
   );

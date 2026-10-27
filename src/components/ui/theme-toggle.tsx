@@ -1,16 +1,17 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useSyncExternalStore } from "react";
 import { Sun, Moon } from "lucide-react";
 
 export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+  () => () => {},
+  () => true,
+  () => false,
+);
 
   const updateStyles = useCallback((css: string) => {
     if (typeof window === "undefined") return;

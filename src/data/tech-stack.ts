@@ -1,11 +1,9 @@
 import {
-    SiAxios,
     SiCplusplus,
     SiDocker,
     SiExpo,
     SiExpress,
     SiFigma,
-    SiGit,
     SiGithub,
     SiJavascript,
     SiMongodb,
@@ -19,7 +17,6 @@ import {
     SiRedis,
     SiSocketdotio,
     SiSupabase,
-    SiTailwindcss,
     SiTypescript,
     SiVercel,
 } from "react-icons/si";

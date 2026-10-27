@@ -1,7 +1,6 @@
-
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import Image from "next/image";
 import { Instrument_Serif } from "next/font/google";
 
@@ -38,8 +37,21 @@ export function GitHubActivity() {
   const [totalContributions, setTotalContributions] = useState(0);
   const [loading, setLoading] = useState(true);
   const [unavailable, setUnavailable] = useState(false);
+  
+  // State to trigger the animation
+  const [animate, setAnimate] = useState(false);
+  
   const calendarRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null); // Ref to track when section is in view
 
+  // Map dates to index for the staggered column delay
+  const dateToIndex = useMemo(() => {
+    const map = new Map<string, number>();
+    activities.forEach((act, i) => map.set(act.date, i));
+    return map;
+  }, [activities]);
+
+  // 1. Fetch Data
   useEffect(() => {
     const controller = new AbortController();
 
@@ -89,6 +101,7 @@ export function GitHubActivity() {
     return () => controller.abort();
   }, []);
 
+  // 2. Handle background horizontal scroll to latest dates
   useEffect(() => {
     if (loading || activities.length === 0) return;
 
@@ -120,6 +133,28 @@ export function GitHubActivity() {
     };
   }, [loading, activities]);
 
+  // 3. Track when the user scrolls to this section
+  useEffect(() => {
+    if (loading || activities.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Trigger the animation when the user scrolls it into view!
+          setAnimate(true);
+          observer.disconnect(); // Only animate once
+        }
+      },
+      { threshold: 0.2 } // Triggers when 20% of the section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [loading, activities]);
+
   if (loading) {
     return (
       <section className="mx-auto w-full max-w-200 border-x border-dashed border-border" aria-labelledby="github-activity-heading">
@@ -137,7 +172,7 @@ export function GitHubActivity() {
   }
 
   return (
-    <section className="mx-auto w-full max-w-200 border-x border-dashed border-border" aria-labelledby="github-activity-heading">
+    <section ref={sectionRef} className="mx-auto w-full max-w-200 border-x border-dashed border-border" aria-labelledby="github-activity-heading">
       <div className="px-2 py-5 sm:px-4">
         <h2 id="github-activity-heading" className={`${instrumentSerif.className} text-4xl leading-none text-primary`}>
           GitHub Activity
@@ -198,9 +233,22 @@ export function GitHubActivity() {
                   renderBlock={(block, activity) => {
                     const y = Number(block.props.y ?? 0);
                     const center = 7;
+                    
+                    const index = dateToIndex.get(activity.date) ?? 0;
+                    const column = Math.floor(index / 7);
+                    const STAGGER_MS = 10;
 
                     return (
-                      <g>
+                      <g
+                        className="transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                        style={{
+                          transitionDelay: `${column * STAGGER_MS}ms`,
+                          transformBox: "fill-box", // Required to scale from center in SVG
+                          transformOrigin: "center",
+                          transform: animate ? "scale(1)" : "scale(0.5)", // Grows from 0.5 to 1
+                          opacity: animate ? 1 : 0, // Fades from 0 to 1
+                        }}
+                      >
                         {block}
                         {activity.count > 0 && (
                           <text

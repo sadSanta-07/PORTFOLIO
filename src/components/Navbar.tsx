@@ -1,13 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import Link from "next/link";
-
 import { Menu, Search, Command, X } from "lucide-react";
-
 import { usePathname } from "next/navigation";
-
 import { Instrument_Serif } from "next/font/google";
-
+import { LiveOrb } from "@/components/ui/live-orb";
+import { useTheme } from "next-themes";
 import {
   motion,
   AnimatePresence,
@@ -19,7 +18,6 @@ import {
 } from "react";
 
 import { CommandPalette } from "@/components/ui/command-palette";
-
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const instrumentSerif = Instrument_Serif({
@@ -33,26 +31,26 @@ const NAV_ITEMS = [
     path: "/#home",
     target: "home",
   },
-  {
-    name: "Projects",
-    path: "/#projects",
-    target: "projects",
-  },
-  {
-    name: "Experience",
-    path: "/#experience",
-    target: "experience",
-  },
+  // {
+  //   name: "Experience",
+  //   path: "/#experience",
+  //   target: "experience",
+  // },
   {
     name: "Contact",
     path: "/#contact",
     target: "contact",
   },
+  {
+    name: "Projects",
+    path: "/#projects",
+    target: "projects",
+  },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
-
+  const { resolvedTheme } = useTheme();
   const [hoveredPath, setHoveredPath] =
     useState<string | null>(null);
 
@@ -65,54 +63,54 @@ export default function Navbar() {
   const [activeSection, setActiveSection] =
     useState("home");
 
+
   useEffect(() => {
     if (pathname !== "/") {
-      setActiveSection("");
       return;
     }
 
-    const sections = [
-      document.getElementById("projects"),
-      document.getElementById("experience"),
-    ].filter(Boolean) as HTMLElement[];
+    const sectionIds = [
+      "home",
+      "contact",
+      "projects",
+      "experience",
+    ];
 
-    if (window.location.hash === "#experience") {
-      setActiveSection("experience");
-    } else if (window.location.hash === "#projects") {
-      setActiveSection("projects");
-    } else {
-      setActiveSection("home");
-    }
+    let animationFrame = 0;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (a, b) =>
-              Math.abs(a.boundingClientRect.top) -
-              Math.abs(b.boundingClientRect.top),
-          );
+    const updateActiveSection = () => {
+      const activationLine = 140;
+      let currentSection = "home";
 
-        if (visibleSections.length > 0) {
-          setActiveSection(
-            visibleSections[0].target.id,
-          );
+      for (const id of sectionIds) {
+        const section = document.getElementById(id);
+
+        if (section && section.getBoundingClientRect().top <= activationLine) {
+          currentSection = id;
         }
-      },
-      {
-        root: null,
-        rootMargin: "-100px 0px -55% 0px",
-        threshold: 0,
-      },
-    );
+      }
 
-    sections.forEach((section) =>
-      observer.observe(section),
-    );
+      setActiveSection(currentSection);
+    };
 
-    return () => observer.disconnect();
+    const scheduleUpdate = () => {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(updateActiveSection);
+    };
+
+    window.addEventListener("scroll", scheduleUpdate, {
+      passive: true,
+    });
+    window.addEventListener("resize", scheduleUpdate);
+    animationFrame = requestAnimationFrame(updateActiveSection);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+    };
   }, [pathname]);
+
 
   /* Command palette shortcut*/
   useEffect(() => {
@@ -144,14 +142,10 @@ export default function Navbar() {
 
   const isActive = (target: string) => {
     if (target === "home") {
-      return pathname === "/" &&
-        activeSection === "home";
+      return pathname === "/" && activeSection === "home";
     }
 
-    return (
-      pathname === "/" &&
-      activeSection === target
-    );
+    return pathname === "/" && activeSection === target;
   };
 
   return (
@@ -190,22 +184,20 @@ export default function Navbar() {
             pt-1
           "
         >
-          {/* Logo */}
+
           <Link
             href="/"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-            }}
-            className={`
-              ${instrumentSerif.className}
-              cursor-pointer
-              text-3xl
-              text-primary
-              transition-opacity
-              hover:opacity-80
-            `}
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`${instrumentSerif.className} flex items-center gap-2 cursor-pointer text-3xl text-primary`}
           >
-            Sahil
+
+            <LiveOrb
+              size={42}
+              theme="auto"
+              interactive
+              blink
+              className="shrink-0" />
+            <span>Sahil</span>
           </Link>
 
           {/* Desktop Navigation */}
