@@ -28,6 +28,7 @@ type GitHubStatsData = {
 
 export function GitHubStats() {
   const [stats, setStats] = useState<GitHubStatsData | null>(null);
+  const [unavailable, setUnavailable] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -44,6 +45,7 @@ export function GitHubStats() {
       })
       .catch((error) => {
         if (error.name !== "AbortError") {
+          setUnavailable(true);
           console.error("Failed to load GitHub stats:", error);
         }
       });
@@ -80,11 +82,12 @@ export function GitHubStats() {
   ];
 
   return (
-    <section className="mx-auto w-full max-w-200 border-x border-dashed border-border">
+    <section className="mx-auto w-full max-w-200 border-x border-dashed border-border" aria-labelledby="github-stats-heading">
       <div className="px-2 py-5 sm:px-4">
         <div className="flex items-end justify-between gap-3">
           <div>
             <h2
+              id="github-stats-heading"
               className={`${instrumentSerif.className} text-4xl leading-none text-primary`}
             >
               GitHub at a glance
@@ -97,7 +100,7 @@ export function GitHubStats() {
           <a
             href="https://github.com/sadSanta-07"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="shrink-0 text-xs text-muted underline-offset-4 hover:text-primary hover:underline"
           >
             View profile ↗
@@ -121,9 +124,13 @@ export function GitHubStats() {
               aria-hidden="true"
             />
 
-            <div className="text-xl font-semibold tracking-tight text-primary sm:text-2xl">
+            <div className="text-xl font-semibold tracking-tight text-primary sm:text-2xl" aria-live={unavailable ? "off" : "polite"}>
               {value === undefined ? (
-                <span className="inline-block h-6 w-10 animate-pulse rounded bg-border" />
+                unavailable ? (
+                  <span className="text-sm font-normal text-muted">Unavailable</span>
+                ) : (
+                  <span className="inline-block h-6 w-10 animate-pulse rounded bg-border" aria-hidden="true" />
+                )
               ) : (
                 `${value.toLocaleString()}+`
               )}

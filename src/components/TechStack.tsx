@@ -77,6 +77,7 @@ export function TechStack() {
                 {/* mobile dropdown */}
                 <div className="relative md:hidden">
                     <select
+                        aria-label="Filter technologies by category"
                         value={activeCategory}
                         onChange={(e) =>
                             setActiveCategory(e.target.value as Category)
