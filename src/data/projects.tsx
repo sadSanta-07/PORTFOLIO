@@ -61,16 +61,41 @@ export const projects: Project[] = [
     },
   },
   {
+    title: "SantaClaw",
+    year: "2026",
+    subtitle: "AI coding agent that asks before it acts.",
+    description:
+      "A terminal-native agent that explores codebases, plans multi-step changes, and stages reviewable git diffs so you always stay in control.",
+    bullets: [
+      "Combines repository analysis, planning, tool calls, and multi-step coding workflows.",
+      "Stages generated changes as reviewable diffs instead of silently applying every modification.",
+      "Offers terminal-native workflows with Bun, AI SDK, and Docker-based isolation.",
+    ],
+    tags: ["TypeScript", "Bun", "Docker", "AI SDK"],
+    tech: [
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "AI SDK", icon: Sparkles },
+    ],
+    github: "https://github.com/sadSanta-07/SANTACLAW",
+    live: "https://santaclaw.vercel.app/",
+    image: "/projects/santaclaw.png",
+    gradientClass:
+      "bg-gradient-to-br from-white via-blue-500 to-slate-950 dark:from-neutral-900 dark:via-blue-600/50 dark:to-neutral-950",
+    badge: {
+      type: "sticker",
+      text: "Diff-First Agent",
+    },
+  },
+  {
     title: "Agent Zero",
     year: "2026",
     subtitle: "From “I should do this” to getting it done.",
     description:
-      "An autonomous multi-agent Google Workspace assistant. Specialized agents triage inbox signals, assess urgency, retain contextual memory, and prepare actions across Gmail, Google Calendar, and Google Docs. Its voice-note and inbox workflows turn unstructured inputs into structured tasks, while its terminal-native coding-agent work explores codebases, plans multi-step changes, and stages reviewable Git diffs so you stay in control.",
+      "An autonomous multi-agent Google Workspace assistant. Specialized agents triage inbox signals, assess urgency, retain contextual memory, and prepare actions across Gmail, Google Calendar, and Google Docs. Its voice-note and inbox workflows turn unstructured inputs into structured tasks.",
     bullets: [
       "Uses specialized agents for triage, urgency, memory, and action execution.",
       "Connects Gmail, Google Calendar, and Google Docs with persistent contextual memory.",
       "Turns voice notes and inbox signals into structured tasks and workflows.",
-      "Explores codebases and stages reviewable Git diffs before changes are applied.",
     ],
     tags: [
       "React",
@@ -80,8 +105,6 @@ export const projects: Project[] = [
       "Firestore",
       "Node.js",
       "Google APIs",
-      "Bun",
-      "Docker",
     ],
     tech: [
       { name: "React", icon: SiReact },
