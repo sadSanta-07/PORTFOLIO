@@ -58,7 +58,6 @@
 
 html {
   scroll-behavior: smooth;
-<<<<<<< HEAD
 }
 
 ::selection,
@@ -71,8 +70,6 @@ html {
 .dark *::selection {
   background-color: #0369a1 !important;
   color: #f0f9ff !important;
-=======
->>>>>>> 27daf93b1bf25ce1736273ec94d132ed1980e289
 }
 
 body {
