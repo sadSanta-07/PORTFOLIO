@@ -61,8 +61,9 @@ export const projects: Project[] = [
     },
   },
   {
-    title: "SantaClaw",
+    title: "Agent Zero",
     year: "2026",
+<<<<<<< HEAD
     subtitle: "AI coding agent that asks before it acts.",
     description:
       "A terminal-native agent that explores codebases, plans multi-step changes, and stages reviewable git diffs so you always stay in control.",
@@ -129,4 +130,52 @@ export const projects: Project[] = [
       text: "MULTI-AGENT · WORKSPACE",
     },
   },
+=======
+    subtitle: "From “I should do this” to getting it done.",
+    description:
+      "Most productivity tools remind you about work. Agent Zero is built to help move it forward: describe what you need in plain language, and its agents can organize context and prepare actions across Google Workspace.",
+    bullets: [
+      "Uses specialized agents for triage, urgency, memory, and action execution.",
+      "Connects Gmail, Google Calendar, and Google Docs with persistent contextual memory.",
+      "Turns voice notes and inbox signals into structured tasks and workflows.",
+    ],
+    tags: [
+      "React",
+      "TypeScript",
+      "Gemini",
+      "Firebase",
+      "Firestore",
+      "Node.js",
+      "Google APIs",
+    ],
+    github: "https://github.com/sadSanta-07/Agent-Zero",
+    live: "https://agentzero-18082.web.app/",
+    logo: "/projects/agent-zero.svg",
+  },
+  {
+    title: "NoJudgement",
+    year: "2026",
+    subtitle: "Get better at speaking by actually speaking.",
+    description:
+      "Practising a language can be awkward when you're worried about making mistakes. NoJudgement brings people together for real-time speaking practice, then uses AI feedback to help them spot what to improve.",
+    bullets: [
+      "Matches users for live conversations using Socket.io and WebRTC.",
+      "Uses speech-to-text and language-model feedback to surface fluency issues, filler words, and improvement areas.",
+      "Tracks progress through session history, streaks, performance analytics, and a leaderboard.",
+    ],
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "WebRTC",
+      "Socket.io",
+      "PostgreSQL",
+      "Prisma",
+      "Whisper",
+      "Llama",
+    ],
+    github: "https://github.com/sadSanta-07/NoJudgement",
+    live: "https://no-judgement.vercel.app/",
+    logo: "/projects/nojudgement.svg",
+  },
+>>>>>>> 27daf93b1bf25ce1736273ec94d132ed1980e289
 ];
