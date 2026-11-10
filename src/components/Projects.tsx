@@ -80,7 +80,7 @@ export function Projects() {
                     <div className="absolute -right-18 sm:-right-20 top-7 sm:top-8 rotate-45 overflow-hidden h-9 sm:h-10 z-10 pointer-events-none">
                       <div className="w-full bg-amber-900/40">
                         <p className="font-sans text-black font-semibold tracking-tight text-[11px] sm:text-xs mt-2.5 sm:mt-3 mb-2 bg-amber-300 py-0.5 sm:py-1 px-16 sm:px-20 border border-dashed border-neutral-600/30 flex items-center gap-1.5 overflow-hidden relative shadow-sm">
-                          <span className="absolute inset-y-0 left-0 w-16 bg-linear-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-87.5 transition-transform duration-1000 ease-out -skew-x-20 z-2 pointer-events-none" />
+                          <span className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-[350px] transition-transform duration-1000 ease-out -skew-x-20 z-2 pointer-events-none" />
                           <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500 animate-pulse" />
                           {project.badge.text}
                         </p>
@@ -136,7 +136,7 @@ export function Projects() {
                   )}
 
                   {/* Responsive Floating Mockup */}
-                  <div className="border-[3.5px] sm:border-5 border-white/30 dark:border-white/20 absolute rounded-lg sm:rounded-xl -right-8 sm:-right-10 md:-right-8 lg:-right-10 -bottom-4 sm:-bottom-5 w-[85%] sm:w-[88%] aspect-16/10 overflow-hidden shadow-2xl transition-all duration-300 ease-out group-hover:-right-6 sm:group-hover:-right-8 group-hover:-bottom-2 sm:group-hover:-bottom-3 group-hover:scale-[1.02] bg-neutral-900">
+                  <div className="border-[3.5px] sm:border-5 border-white/30 dark:border-white/20 absolute rounded-lg sm:rounded-xl -right-8 sm:-right-10 md:-right-8 lg:-right-10 -bottom-4 sm:-bottom-5 w-[85%] sm:w-[88%] aspect-[16/10] overflow-hidden shadow-2xl transition-all duration-300 ease-out group-hover:-right-6 sm:group-hover:-right-8 group-hover:-bottom-2 sm:group-hover:-bottom-3 group-hover:scale-[1.02] bg-neutral-900">
                     <Image
                       src={project.image}
                       alt={`${project.title} preview`}
@@ -187,7 +187,7 @@ export function Projects() {
                         className="group/tech relative flex items-center justify-center text-muted hover:text-primary transition-colors cursor-pointer"
                         title={t.name}
                       >
-                        <t.icon className="size-4 md:size-3.75 transition-transform duration-200 group-hover/tech:scale-125" />
+                        <t.icon className="size-4 md:size-[15px] transition-transform duration-200 group-hover/tech:scale-125" />
                       </div>
                     ))}
                   </div>
