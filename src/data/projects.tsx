@@ -74,6 +74,8 @@ export const projects: Project[] = [
     tags: ["TypeScript", "Bun", "Docker", "AI SDK"],
     tech: [
       { name: "TypeScript", icon: SiTypescript },
+      { name: "Bun", icon: SiBun },
+      { name: "Docker", icon: SiDocker },
       { name: "AI SDK", icon: Sparkles },
     ],
     github: "https://github.com/sadSanta-07/SANTACLAW",
@@ -111,9 +113,6 @@ export const projects: Project[] = [
       { name: "TypeScript", icon: SiTypescript },
       { name: "Firebase", icon: SiFirebase },
       { name: "Gemini AI", icon: SiGooglegemini },
-      { name: "Bun", icon: SiBun },
-      { name: "Docker", icon: SiDocker },
-      { name: "AI SDK", icon: Sparkles },
     ],
     github: "https://github.com/sadSanta-07/Agent-Zero",
     live: "https://agentzero-18082.web.app/",
