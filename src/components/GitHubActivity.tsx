@@ -1,10 +1,6 @@
 "use client";
 
-<<<<<<< HEAD
 import { useEffect, useState } from "react";
-=======
-import { useEffect, useRef, useState, useMemo } from "react";
->>>>>>> 27daf93b1bf25ce1736273ec94d132ed1980e289
 import Image from "next/image";
 import { Instrument_Serif } from "next/font/google";
 import {
@@ -37,24 +33,7 @@ export function GitHubActivity() {
   const [endDate, setEndDate] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState(true);
   const [unavailable, setUnavailable] = useState(false);
-<<<<<<< HEAD
-=======
-  
-  // State to trigger the animation
-  const [animate, setAnimate] = useState(false);
-  
-  const calendarRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null); // Ref to track when section is in view
->>>>>>> 27daf93b1bf25ce1736273ec94d132ed1980e289
 
-  // Map dates to index for the staggered column delay
-  const dateToIndex = useMemo(() => {
-    const map = new Map<string, number>();
-    activities.forEach((act, i) => map.set(act.date, i));
-    return map;
-  }, [activities]);
-
-  // 1. Fetch Data
   useEffect(() => {
     const controller = new AbortController();
 
@@ -83,14 +62,14 @@ export function GitHubActivity() {
           })),
         );
       })
-      .catch((error) => {
-        if (error.name !== "AbortError") {
+      .catch((error: unknown) => {
+        if (error instanceof Error && error.name !== "AbortError") {
           setUnavailable(true);
           setHeatData([]);
         }
       })
       .finally(() => {
-        setLoading(false);
+        if (!controller.signal.aborted) setLoading(false);
       });
 
     return () => controller.abort();
@@ -122,14 +101,10 @@ export function GitHubActivity() {
   }
 
   return (
-<<<<<<< HEAD
     <section
       className="mx-auto w-full max-w-200 border-x border-dashed border-border"
       aria-labelledby="github-activity-heading"
     >
-=======
-    <section ref={sectionRef} className="mx-auto w-full max-w-200 border-x border-dashed border-border" aria-labelledby="github-activity-heading">
->>>>>>> 27daf93b1bf25ce1736273ec94d132ed1980e289
       <div className="px-2 py-5 sm:px-4">
         <h2
           id="github-activity-heading"
@@ -162,112 +137,15 @@ export function GitHubActivity() {
               .
             </div>
           ) : (
-<<<<<<< HEAD
             <ActivityHeatmap
               data={heatData}
               endDate={endDate}
               color="#34d399"
               unit="contributions"
-              animated={true}
+              animated
               weeks={53}
               weekStart={0}
             />
-=======
-            <>
-              <div ref={calendarRef} className="w-full overflow-x-auto overflow-y-hidden">
-                <ActivityCalendar
-                  data={activities}
-                  blockSize={14}
-                  blockMargin={3}
-                  blockRadius={3}
-                  fontSize={13}
-                  maxLevel={4}
-                  showWeekdayLabels={false}
-                  showColorLegend={false}
-                  showTotalCount={false}
-                  showMonthLabels={true}
-                  theme={{
-                    light: [
-                      "var(--github-level-0)",
-                      "var(--github-level-1)",
-                      "var(--github-level-2)",
-                      "var(--github-level-3)",
-                      "var(--github-level-4)",
-                    ],
-                    dark: [
-                      "var(--github-level-0)",
-                      "var(--github-level-1)",
-                      "var(--github-level-2)",
-                      "var(--github-level-3)",
-                      "var(--github-level-4)",
-                    ],
-                  }}
-                  renderBlock={(block, activity) => {
-                    const y = Number(block.props.y ?? 0);
-                    const center = 7;
-                    
-                    const index = dateToIndex.get(activity.date) ?? 0;
-                    const column = Math.floor(index / 7);
-                    const STAGGER_MS = 10;
-
-                    return (
-                      <g
-                        className="transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
-                        style={{
-                          transitionDelay: `${column * STAGGER_MS}ms`,
-                          transformBox: "fill-box", // Required to scale from center in SVG
-                          transformOrigin: "center",
-                          transform: animate ? "scale(1)" : "scale(0.5)", // Grows from 0.5 to 1
-                          opacity: animate ? 1 : 0, // Fades from 0 to 1
-                        }}
-                      >
-                        {block}
-                        {activity.count > 0 && (
-                          <text
-                            x={center}
-                            y={y + center}
-                            textAnchor="middle"
-                            dominantBaseline="central"
-                            fontSize={7}
-                            fontWeight={600}
-                            fill={
-                              activity.level >= 3
-                                ? "var(--github-number-light)"
-                                : "var(--github-number-dark)"
-                            }
-                            pointerEvents="none"
-                            aria-hidden="true"
-                          >
-                            {activity.count}
-                          </text>
-                        )}
-                      </g>
-                    );
-                  }}
-                  tooltips={{
-                    activity: {
-                      withArrow: true,
-                      text: (activity) =>
-                        `${activity.count} contributions on ${new Date(
-                          `${activity.date}T00:00:00`,
-                        ).toLocaleDateString("en-US", {
-                          month: "short",
-                          day: "numeric",
-                          year: "numeric",
-                        })}`,
-                    },
-                  }}
-                />
-              </div>
-
-              <div className="px-1 pt-3 text-[13px] text-muted sm:px-2 sm:pt-4">
-                <span className="text-primary">
-                  {totalContributions.toLocaleString()}
-                </span>{" "}
-                contributions in the last year
-              </div>
-            </>
->>>>>>> 27daf93b1bf25ce1736273ec94d132ed1980e289
           )}
         </div>
       </div>
