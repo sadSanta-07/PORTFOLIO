@@ -17,7 +17,7 @@ const links: Feature[] = [
     {
         title: "Resume",
         text: "my stats, but in corporate language.",
-        href: "https://drive.google.com/file/d/1QK_85miZxc-v16yfxMQAq43bwdoZPQdd/view?usp=sharing",
+        href: "https://drive.google.com/file/d/1x69uq1qAiGjYpMNSZISw6DXWoc-mDB4U/view",
         external: true,
         icon: <SiGoogledocs className="size-5" />,
     },
