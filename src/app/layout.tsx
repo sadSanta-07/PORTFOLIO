@@ -55,10 +55,10 @@ export const metadata: Metadata = {
       "Portfolio of Sahil Singh: open-source developer tools, AI agents, distributed systems, and full-stack projects.",
     images: [
       {
-        url: "/pfp1.png",
+        url: "/og-image.png",
         width: 1200,
-        height: 1200,
-        alt: "Sahil Singh",
+        height: 630,
+        alt: "Sahil Singh — Software Developer, AI & Systems",
       },
     ],
   },
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: "Sahil Singh — Software Developer, AI & Systems",
     description:
       "Explore Sahil Singh's projects in developer tools, AI agents, distributed systems, and full-stack development.",
-    images: ["/pfp1.png"],
+    images: ["/og-image.png"],
   },
 };
 
